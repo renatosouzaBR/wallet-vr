@@ -8,10 +8,12 @@ import { Input } from '../../components/Input'
 
 import { CARD_REGISTER_STYLES } from './styles'
 import { Button } from '../../components/Button'
+import { Navbar } from '../../components/Navbar'
 
 const CardRegisterComponent = () => {
   return (
     <View style={CARD_REGISTER_STYLES.container}>
+      <Navbar title='cadastro' onBackButtonPress={() => false} />
       <Heading text='Wallet Test' color={COLORS.white} />
 
       <Input
