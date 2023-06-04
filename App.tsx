@@ -1,7 +1,8 @@
 import { useFonts } from 'expo-font';
 import { PTSans_400Regular } from '@expo-google-fonts/pt-sans'
 import { PTSansCaption_400Regular } from '@expo-google-fonts/pt-sans-caption'
-import { Heading } from './src/components/Heading';
+
+import { Text } from './src/components/Text';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -14,6 +15,6 @@ export default function App() {
   }
 
   return (
-    <Heading text='Cabeçalho' />
+    <Text text='Texto' />
   );
 }
