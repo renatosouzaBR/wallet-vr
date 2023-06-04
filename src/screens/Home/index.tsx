@@ -9,7 +9,7 @@ import { HOME_STYLES } from './styles'
 
 const HomeComponent = () => {
    return (
-    <View style={HOME_STYLES.form}>
+    <View style={HOME_STYLES.container}>
       <Heading text='Wallet Test' color={COLORS.white} />
       <Button text='meus cartões' />
       <Button 
