@@ -5,7 +5,7 @@ import { PTSans_400Regular } from '@expo-google-fonts/pt-sans'
 import { PTSansCaption_400Regular } from '@expo-google-fonts/pt-sans-caption'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
-import { CardRegisterSuccess } from './src/screens/CardRegisterSuccess';
+import { LoadingCards } from './src/screens/LoadingCards';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -19,7 +19,7 @@ export default function App() {
 
   return (
     <SafeAreaProvider>
-      <CardRegisterSuccess />
+      <LoadingCards />
     </SafeAreaProvider>
   );
 }
