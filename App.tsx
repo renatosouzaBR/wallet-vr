@@ -4,8 +4,9 @@ import { useFonts } from 'expo-font';
 import { PTSans_400Regular } from '@expo-google-fonts/pt-sans'
 import { PTSansCaption_400Regular } from '@expo-google-fonts/pt-sans-caption'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import { CardsList } from './src/screens/CardsList';
+import { Routes } from './src/routes';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -18,8 +19,10 @@ export default function App() {
   }
 
   return (
-    <SafeAreaProvider>
-      <CardsList />
-    </SafeAreaProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaProvider>
+        <Routes />
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 }
