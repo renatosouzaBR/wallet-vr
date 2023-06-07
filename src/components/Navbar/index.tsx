@@ -10,7 +10,7 @@ import { BorderlessButton } from 'react-native-gesture-handler'
 
 interface NavbarProps {
   title: string;
-  onBackButtonPress: () => {};
+  onBackButtonPress: () => void;
 }
 
 export function Navbar({ title, onBackButtonPress }: NavbarProps) {

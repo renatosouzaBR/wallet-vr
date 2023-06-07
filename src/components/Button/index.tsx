@@ -9,9 +9,10 @@ interface ButtonProps extends RectButtonProps {
   disabled?: boolean;
   bgColor?: string;
   textColor?: string;
+  onPress?: () => void;
 }
 
-export function Button({ disabled, text, bgColor, textColor }: ButtonProps) {
+export function Button({ disabled, text, bgColor, textColor, ...rest }: ButtonProps) {
   return (
     <RectButton 
       style={[
@@ -20,6 +21,7 @@ export function Button({ disabled, text, bgColor, textColor }: ButtonProps) {
         !!bgColor && { backgroundColor: bgColor }
       ]} 
       activeOpacity={disabled ? 0 : 0.2}
+      {...rest}
     >
       <Heading
         text={text} 
