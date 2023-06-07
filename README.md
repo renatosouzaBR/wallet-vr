@@ -26,6 +26,12 @@ Para executar o projeto faça o clone do repositório e acesse a pasta. Instale 
 npm install
 ```
 
+Antes de executarmos o projeto seja no iOS ou Android, devemos inicializar nossa API Fake para conseguirmos realizar os cadastros e listagem de cartões. Execute o comando abaixo:
+
+```sh
+npm run server
+```
+
 Agora execute o projeto utilizando o Expo com o seguinte comando:
 
 ```sh
