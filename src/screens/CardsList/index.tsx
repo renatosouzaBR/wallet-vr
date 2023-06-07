@@ -35,7 +35,7 @@ export function CardsList() {
       <View style={CARDS_LIST_STYLES.cardsList}>
         <Card
           data={{
-            cardNumber: 1234123412345659,
+            cardNumber: "1234123412345659",
             dueDate: '01/28',
             ownerName: 'Renato Souza'
           }}
@@ -43,7 +43,7 @@ export function CardsList() {
 
         <Card
           data={{
-            cardNumber: 1234123412342344,
+            cardNumber: "1234123412342344",
             dueDate: '01/31',
             ownerName: 'João Carlos'
           }}

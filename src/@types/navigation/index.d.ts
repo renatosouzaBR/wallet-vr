@@ -12,6 +12,7 @@ export declare global {
       CardRegister: undefined;
       CardRegisterSuccess: { data: StoragedCard };
       LoadingCards: undefined;
+      CardsList: undefined;
     }
   }
 }
