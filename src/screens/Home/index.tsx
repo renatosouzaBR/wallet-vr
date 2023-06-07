@@ -15,10 +15,18 @@ const HomeComponent = () => {
     navigate('CardRegister')
   }
 
+  function handleNavigateToLoadingCards() {
+    navigate('LoadingCards')
+  }
+
   return (
     <View style={HOME_STYLES.container}>
       <Heading text='Wallet Test' color={COLORS.white} />
-      <Button text='meus cartões' />
+
+      <Button 
+        text='meus cartões'
+        onPress={handleNavigateToLoadingCards}
+      />
 
       <Button 
         text='cadastrar cartão' 
