@@ -1,11 +1,12 @@
 import { ReactNode } from 'react';
 import { View, TextInput, TextInputProps } from 'react-native'
+import MaskInput, { MaskInputProps } from 'react-native-mask-input'
 
 import { COLORS } from '../../styles/colors'
 import { Text } from '../Text'
 import { INPUT_STYLES } from './styles'
 
-interface InputProps extends TextInputProps {
+export interface InputProps extends MaskInputProps {
   label?: string;
   icon?: ReactNode
 }
@@ -24,7 +25,7 @@ export function Input({ label, icon, ...rest }: InputProps) {
           </View>
         }
 
-        <TextInput 
+        <MaskInput 
           style={INPUT_STYLES.input}
           placeholderTextColor={COLORS.gray} 
           {...rest}

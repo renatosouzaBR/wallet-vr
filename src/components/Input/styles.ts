@@ -25,6 +25,7 @@ export const INPUT_STYLES = StyleSheet.create({
     shadowRadius: 4
   },
   input: {
+    flex: 1,
     height: '100%',
     fontFamily: 'PTSans_400Regular',
     fontWeight: '400',
