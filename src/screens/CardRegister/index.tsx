@@ -14,6 +14,7 @@ import { ControlledInput } from '../../components/Input/controlled-input'
 import { api } from '../../configs/api'
 
 import { CARD_REGISTER_STYLES } from './styles'
+import { useEffect } from 'react'
 
 const cardRegisterFormSchema = z.object({
   cardNumber: z.string().min(19),
@@ -25,10 +26,11 @@ const cardRegisterFormSchema = z.object({
 type CardRegisterFormType = z.infer<typeof cardRegisterFormSchema>;
 
 const CardRegisterComponent = () => {
-  const { goBack } = useNavigation();
+  const { navigate, goBack } = useNavigation();
   const { 
     control, 
     handleSubmit,
+    reset,
     formState: { isSubmitting, isValid } 
   } = useForm<CardRegisterFormType>({
     resolver: zodResolver(cardRegisterFormSchema)
@@ -37,18 +39,22 @@ const CardRegisterComponent = () => {
   async function handleSubmitForm(data: CardRegisterFormType) {
     try {
       const newCard = {
-        number: data.cardNumber,
+        number: data.cardNumber.replaceAll(' ', ''),
         cvv: data.securityCode,
         name: data.ownerName,
         dueDate: data.dueDate
       }
 
       const response = await api.post('cards', newCard)
-      console.log(response.data);
+      navigate('CardRegisterSuccess', { data: response.data })
     } catch (error) {
       Alert.alert('Ops...', 'Não foi possível cadastrar o cartão, tente novamente!')
     }
   }
+
+  useEffect(() => {
+    reset()
+  }, [])
 
   return (
     <View style={CARD_REGISTER_STYLES.container}>

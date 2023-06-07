@@ -9,13 +9,13 @@ import { CARD_STYLES } from './styles'
 interface CardProps {
   data: {
     ownerName: string;
-    cardNumber: number;
+    cardNumber: string;
     dueDate: string;
   }
 }
 
 export function Card({ data }: CardProps) {
-  const lastCardNumber = data.cardNumber.toString().substring(12, 16)
+  const lastCardNumber = data.cardNumber.substring(12, 16)
 
   return (
     <View style={CARD_STYLES.container}>

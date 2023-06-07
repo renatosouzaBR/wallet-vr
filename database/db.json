@@ -6,20 +6,6 @@
       "cvv": "317",
       "name": "John Doe",
       "dueDate": "05/31"
-    },
-    {
-      "number": "1232 3123 1231 2321",
-      "cvv": "123",
-      "name": "Renato Souza",
-      "dueDate": "12/31",
-      "id": "IGdoN8I"
-    },
-    {
-      "number": "1232 3123 1231 2321",
-      "cvv": "123",
-      "name": "Renato Souza",
-      "dueDate": "12/31",
-      "id": "wWsDyzJ"
     }
   ]
 }
