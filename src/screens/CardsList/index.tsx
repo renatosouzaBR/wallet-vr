@@ -53,7 +53,10 @@ export function CardsList() {
             selectedCard.id ? CARDS_LIST_STYLES.cardsListContainerWithoutFocus : {}
           ]}>
             
-          <ScrollView style={CARDS_LIST_STYLES.cardListView}>
+          <ScrollView 
+            style={CARDS_LIST_STYLES.cardListView}
+            showsVerticalScrollIndicator={false}
+          >
             {listOfCards.map((card, index) => 
               <Card
                 key={card.id}

@@ -24,9 +24,13 @@ const CardRegisterSuccessComponent = () => {
     navigate('LoadingCards')
   }
 
+  function handleBack() {
+    navigate('Home')
+  }
+
   return (
     <View style={CARD_REGISTER_SUCCESS_STYLES.container}>
-      <Navbar title='cadastro' onBackButtonPress={goBack} />
+      <Navbar title='cadastro' onBackButtonPress={handleBack} />
 
       <View style={CARD_REGISTER_SUCCESS_STYLES.headers}>
         <Heading text='Wallet Test' color={COLORS.white} />

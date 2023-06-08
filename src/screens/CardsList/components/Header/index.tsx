@@ -17,10 +17,14 @@ export function Header() {
     navigate('CardRegister')
   }
 
+  function handleBack() {
+    navigate('Home')
+  }
+
   return (
     <View style={HEADER_STYLES.container}>
       <View style={[HEADER_STYLES.header, { paddingTop: top }]}>
-        <BorderlessButton style={HEADER_STYLES.iconButton}>
+        <BorderlessButton style={HEADER_STYLES.iconButton} onPress={handleBack}>
           <Feather name="arrow-left" size={22} color={COLORS.blueLight} />
         </BorderlessButton>
 

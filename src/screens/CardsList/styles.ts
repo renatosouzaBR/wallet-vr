@@ -14,7 +14,8 @@ export const CARDS_LIST_STYLES = StyleSheet.create({
   cardsListContainer: {
     alignItems: 'center',
     gap: 16,
-    paddingTop: 40
+    paddingTop: 40,
+    marginBottom: 50
   },
   cardsListContainerWithoutFocus: {
     position: 'absolute',

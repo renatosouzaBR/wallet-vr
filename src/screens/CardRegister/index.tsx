@@ -14,7 +14,6 @@ import { ControlledInput } from '../../components/Input/controlled-input'
 import { api } from '../../configs/api'
 
 import { CARD_REGISTER_STYLES } from './styles'
-import { useEffect } from 'react'
 
 const cardRegisterFormSchema = z.object({
   cardNumber: z.string().min(19),
@@ -30,7 +29,6 @@ const CardRegisterComponent = () => {
   const { 
     control, 
     handleSubmit,
-    reset,
     formState: { isSubmitting, isValid } 
   } = useForm<CardRegisterFormType>({
     resolver: zodResolver(cardRegisterFormSchema)
@@ -52,10 +50,6 @@ const CardRegisterComponent = () => {
     }
   }
 
-  useEffect(() => {
-    reset()
-  }, [])
-
   return (
     <View style={CARD_REGISTER_STYLES.container}>
       <Navbar title='cadastro' onBackButtonPress={goBack} />
@@ -74,7 +68,6 @@ const CardRegisterComponent = () => {
           /\d/, /\d/, /\d/, /\d/, ' ',
           /\d/, /\d/, /\d/, /\d/
         ]}
-        autoFocus
       />
        
       <ControlledInput
