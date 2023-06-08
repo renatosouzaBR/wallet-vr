@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { Alert, View } from "react-native"
-import { useNavigation } from "@react-navigation/native"
+import { useNavigation, useIsFocused } from "@react-navigation/native"
 import { useSetRecoilState } from "recoil"
 
 import { BgAnimated } from "../../templates/BgAnimated"
@@ -12,6 +12,7 @@ import { LOADING_CARDS_STYLES } from "./styles"
 
 const LoadingCardsComponent = () => {
   const { navigate } = useNavigation();
+  const focused = useIsFocused();
   const setCards = useSetRecoilState(cardsState)
 
   function handleNavigateToHome() {
@@ -32,8 +33,10 @@ const LoadingCardsComponent = () => {
   }
 
   useEffect(() => {
-    fetchCards();
-  }, [])
+    if (focused) {
+      fetchCards();
+    }
+  }, [focused])
 
   return (
     <View style={LOADING_CARDS_STYLES.container}>
