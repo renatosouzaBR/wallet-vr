@@ -37,7 +37,7 @@ export function CardsList() {
       <View style={CARDS_LIST_STYLES.content}>
         {selectedCard.id && 
           <View style={CARDS_LIST_STYLES.selectedCard}>
-            <Card data={{
+            <Card animateCard data={{
               cardNumber: selectedCard.number,
               dueDate: selectedCard.dueDate,
               ownerName: selectedCard.name
@@ -55,11 +55,13 @@ export function CardsList() {
             
           <ScrollView 
             style={CARDS_LIST_STYLES.cardListView}
+            contentContainerStyle={{ paddingVertical: 60 }}
             showsVerticalScrollIndicator={false}
           >
             {listOfCards.map((card, index) => 
               <Card
                 key={card.id}
+                animateCard
                 data={{
                   cardNumber: card.number,
                   dueDate: card.dueDate,

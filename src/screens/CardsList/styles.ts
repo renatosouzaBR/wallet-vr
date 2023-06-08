@@ -9,7 +9,7 @@ export const CARDS_LIST_STYLES = StyleSheet.create({
   content: {
     flex: 1,
     paddingHorizontal: 30,
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
   cardsListContainer: {
     alignItems: 'center',
@@ -19,7 +19,7 @@ export const CARDS_LIST_STYLES = StyleSheet.create({
   },
   cardsListContainerWithoutFocus: {
     position: 'absolute',
-    top: '88%',
+    top: '74%',
     left: 0,
     right: 0,
     paddingHorizontal: 30,

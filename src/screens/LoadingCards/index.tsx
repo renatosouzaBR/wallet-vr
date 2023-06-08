@@ -38,7 +38,10 @@ const LoadingCardsComponent = () => {
     try {
       const { data } = await api.get('cards');
       setCards(data);
-      // navigate('CardsList');
+
+      setTimeout(() => {
+        navigate('CardsList');
+      }, 1000)
     } catch (error) {
       Alert.alert('Ops', 'Não foi possível carregar os cartões cadastrados, tente novamente!', [{
         text: 'Inicio',
