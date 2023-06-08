@@ -1,57 +1,62 @@
-import { View } from "react-native"
-import { BorderlessButton } from "react-native-gesture-handler"
-import { Feather } from '@expo/vector-icons'
-import { useSafeAreaInsets } from "react-native-safe-area-context"
+import { useState } from "react"
+import { View, ScrollView } from "react-native"
+import { useRecoilValue } from "recoil"
 
-import { Heading } from "../../components/Heading"
 import { COLORS } from "../../styles/colors"
 import { Card } from "../../components/Card"
 import { Text } from "../../components/Text"
 import { Button } from "../../components/Button"
+import { cardsState } from "../../hooks/atoms"
+import { StoragedCard } from "../../@types/navigation"
 
+import { Header } from "./components/Header"
 import { CARDS_LIST_STYLES } from "./styles"
 
 export function CardsList() {
-  const { top } = useSafeAreaInsets();
+  const cards = useRecoilValue(cardsState);
+
+  const [selectedCard, setSelectedCard] = useState({} as StoragedCard)
 
   return (
     <View style={CARDS_LIST_STYLES.container}>
-      <View style={[CARDS_LIST_STYLES.header, { paddingTop: top }]}>
-        <BorderlessButton style={CARDS_LIST_STYLES.iconButton}>
-          <Feather name="arrow-left" size={22} color={COLORS.blueLight} />
-        </BorderlessButton>
+      <Header />
 
-        <Heading text="Wallet Test" size="h3" color={COLORS.blueDark} />
+      <View style={CARDS_LIST_STYLES.content}>
+        {selectedCard.id && 
+          <View style={CARDS_LIST_STYLES.selectedCard}>
+            <Card data={{
+              cardNumber: cards[0].number,
+              dueDate: cards[0].dueDate,
+              ownerName: cards[0].name
+            }} />
 
-        <BorderlessButton style={CARDS_LIST_STYLES.iconButton}>
-          <Feather name="plus" size={22} color={COLORS.blueLight} />
-        </BorderlessButton>
-      </View>
+            <Button text="pagar com este cartão" />
+          </View>
+        }
 
-      <View style={CARDS_LIST_STYLES.titleWrapper}>
-        <Heading size="h4" text="Meus cartões" color={COLORS.blueLight} />
-      </View>
+        <View 
+          style={[
+            CARDS_LIST_STYLES.cardsListContainer, 
+            selectedCard.id ? CARDS_LIST_STYLES.cardsListContainerWithoutFocus : {}
+          ]}>
+            
+          <ScrollView style={CARDS_LIST_STYLES.cardListView}>
+            {cards.map((card, index) => 
+              <Card
+                key={card.id}
+                data={{
+                  cardNumber: card.number,
+                  dueDate: card.dueDate,
+                  ownerName: card.name
+                }}
+                style={index > 0 ? { marginTop: -120 } : {}}
+              />
+            )}
+          </ScrollView>
 
-      <View style={CARDS_LIST_STYLES.cardsList}>
-        <Card
-          data={{
-            cardNumber: "1234123412345659",
-            dueDate: '01/28',
-            ownerName: 'Renato Souza'
-          }}
-        />
-
-        <Card
-          data={{
-            cardNumber: "1234123412342344",
-            dueDate: '01/31',
-            ownerName: 'João Carlos'
-          }}
-        />
-
-        <Text text="usar este cartão" color={COLORS.white} />
-        <Button text="pagar com este cartão" />
-      </View>
+          <Text text="usar este cartão" color={COLORS.white} />
+        </View>
+      </View>      
     </View>
   )
 }

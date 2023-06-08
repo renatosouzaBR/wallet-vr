@@ -6,35 +6,27 @@ export const CARDS_LIST_STYLES = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.blueDark
   },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 24,
-    paddingBottom: 14,
-    backgroundColor: COLORS.grayLight,
-    shadowColor: COLORS.blueDark,
-    shadowOffset: { height: -10, width: 0 },
-    shadowRadius: 20,
-    shadowOpacity: 1,
-    zIndex: 1
-  },
-  iconButton: {
-    padding: 8,
-    borderRadius: 20,
-  },
-  titleWrapper: {
-    backgroundColor: COLORS.grayLight,
-    borderBottomLeftRadius: 50,
-    borderBottomRightRadius: 50,
-    paddingVertical: 26,
-    alignItems: 'center'
-  },
-  cardsList: {
+  content: {
     flex: 1,
     paddingHorizontal: 30,
-    justifyContent: 'center',
+    justifyContent: 'space-around'
+  },
+  cardsListContainer: {
     alignItems: 'center',
-    gap: 16
+    gap: 16,
+    paddingTop: 40
+  },
+  cardsListContainerWithoutFocus: {
+    position: 'absolute',
+    top: '88%',
+    left: 0,
+    right: 0,
+    paddingHorizontal: 30,
+  },
+  cardListView: {
+    width: '100%',  
+  },
+  selectedCard: {
+    gap: 100,
   }
 })

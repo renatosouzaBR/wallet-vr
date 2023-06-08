@@ -8,7 +8,11 @@ export const CARD_STYLES = StyleSheet.create({
     borderRadius: 16,
     paddingHorizontal: 20,
     paddingVertical: 28,
-    backgroundColor: COLORS.black
+    backgroundColor: COLORS.black,
+    elevation: 1,
+    shadowOffset: { height: -2, width: 2 },
+    shadowRadius: 6,
+    shadowOpacity: 0.50
   },
   cardDetails: {
     marginTop: 34,

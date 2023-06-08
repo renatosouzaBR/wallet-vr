@@ -1,4 +1,5 @@
-import { View } from 'react-native'
+import { View, ViewStyle } from 'react-native'
+import { RectButton, RectButtonProps } from 'react-native-gesture-handler'
 
 import { Heading } from '../Heading'
 import { COLORS } from '../../styles/colors'
@@ -6,19 +7,20 @@ import { Text } from '../Text'
 
 import { CARD_STYLES } from './styles'
 
-interface CardProps {
+interface CardProps extends RectButtonProps {
   data: {
     ownerName: string;
     cardNumber: string;
     dueDate: string;
   }
+  style?: ViewStyle
 }
 
-export function Card({ data }: CardProps) {
+export function Card({ data, style, ...rest }: CardProps) {
   const lastCardNumber = data.cardNumber.substring(12, 16)
 
   return (
-    <View style={CARD_STYLES.container}>
+    <RectButton style={[CARD_STYLES.container, style]} {...rest}>
       <Heading 
         size='h5' 
         text='Black Card' 
@@ -41,6 +43,6 @@ export function Card({ data }: CardProps) {
           size='sm'
         />
       </View>
-    </View>
+    </RectButton>
   )
 }
