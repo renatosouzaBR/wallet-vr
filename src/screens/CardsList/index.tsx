@@ -14,8 +14,21 @@ import { CARDS_LIST_STYLES } from "./styles"
 
 export function CardsList() {
   const cards = useRecoilValue(cardsState);
-
+  const [listOfCards, setListOfCards] = useState(cards)
   const [selectedCard, setSelectedCard] = useState({} as StoragedCard)
+
+  function handleSelectCard(id: string) {
+    if (selectedCard.id) {
+      setSelectedCard({} as StoragedCard);
+      setListOfCards(cards);
+    } else {
+      const cardsWithoutSelected = cards.filter(card => card.id !== id);
+      const selectedCardFromList = cards.find(card => card.id === id);
+
+      if (selectedCardFromList) setSelectedCard(selectedCardFromList);
+      setListOfCards(cardsWithoutSelected);
+    }
+  }
 
   return (
     <View style={CARDS_LIST_STYLES.container}>
@@ -25,9 +38,9 @@ export function CardsList() {
         {selectedCard.id && 
           <View style={CARDS_LIST_STYLES.selectedCard}>
             <Card data={{
-              cardNumber: cards[0].number,
-              dueDate: cards[0].dueDate,
-              ownerName: cards[0].name
+              cardNumber: selectedCard.number,
+              dueDate: selectedCard.dueDate,
+              ownerName: selectedCard.name
             }} />
 
             <Button text="pagar com este cartão" />
@@ -41,7 +54,7 @@ export function CardsList() {
           ]}>
             
           <ScrollView style={CARDS_LIST_STYLES.cardListView}>
-            {cards.map((card, index) => 
+            {listOfCards.map((card, index) => 
               <Card
                 key={card.id}
                 data={{
@@ -50,6 +63,7 @@ export function CardsList() {
                   ownerName: card.name
                 }}
                 style={index > 0 ? { marginTop: -120 } : {}}
+                onPress={() => handleSelectCard(card.id)}
               />
             )}
           </ScrollView>
