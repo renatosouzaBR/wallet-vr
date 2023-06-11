@@ -6,13 +6,6 @@
       "cvv": "317",
       "name": "John Doe",
       "dueDate": "05/31"
-    },
-    {
-      "number": "9238918230912839",
-      "cvv": "123",
-      "name": "Renato Souza",
-      "dueDate": "12/31",
-      "id": "0AbbF3i"
     }
   ]
 }
